@@ -1,0 +1,1467 @@
+
+/* =========================================
+   AARAV & ANANYA
+   LUXURY BLUSH RED WEDDING INVITATION
+   Mobile-first design
+========================================= */
+
+:root {
+    --background: #d0636c;
+    --red: #BD5A68;
+    --red-dark: #8F3548;
+    --wine: #692637;
+    --rose: #D98996;
+    --rose-light: #F5DDE0;
+    --gold: #B18A50;
+    --gold-light: #E3C991;
+    --cream: #FFF8F1;
+    --ink: #572A36;
+    --blush: #FCEBED;
+
+    --sans: Arial, Helvetica, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+    --script: "Brush Script MT", "Segoe Script", cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 15px;
+}
+
+body {
+    min-height: 100%;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+::selection {
+    background: var(--red-dark);
+    color: white;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* =========================================
+   OPENING BOW SCREEN
+========================================= */
+
+.bow-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 42%,
+            #F9E0DF 0%,
+            #E9B9BE 48%,
+            #CE8A96 100%
+        );
+
+    transition: opacity .55s ease, visibility .55s ease;
+}
+
+.gold-frame {
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgb(177 138 80 / 85%);
+    pointer-events: none;
+}
+
+.gold-frame::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgb(255 248 241 / 65%);
+}
+
+.opening-text {
+    position: absolute;
+    top: 13%;
+    z-index: 3;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    animation: opening-text-in .8s ease both;
+}
+
+.opening-text span {
+    color: var(--wine);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.opening-text p {
+    margin-top: 12px;
+    color: var(--red-dark);
+    font-family: var(--script);
+    font-size: clamp(28px, 7vw, 42px);
+}
+
+.opening-hint {
+    position: absolute;
+    bottom: 10%;
+    z-index: 3;
+    padding: 0 18px;
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+
+.opening-glow {
+    position: absolute;
+    z-index: -1;
+    width: min(75vw, 400px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgb(255 248 241 / 48%);
+    filter: blur(55px);
+}
+
+.ornament {
+    position: absolute;
+    z-index: 1;
+    color: var(--gold);
+    opacity: .8;
+    font-size: clamp(35px, 9vw, 75px);
+    pointer-events: none;
+    animation: flower-drift 5s ease-in-out infinite;
+}
+
+.ornament-one {
+    top: 3%;
+    left: 4%;
+}
+
+.ornament-two {
+    top: 4%;
+    right: 4%;
+    animation-delay: -2s;
+}
+
+.ornament-three {
+    bottom: 3%;
+    left: 4%;
+    animation-delay: -3s;
+}
+
+.ornament-four {
+    right: 4%;
+    bottom: 3%;
+    animation-delay: -1s;
+}
+
+/* =========================================
+   SATIN BOW
+========================================= */
+
+.bow-stage {
+    position: relative;
+    z-index: 2;
+    width: min(88vw, 440px);
+    height: min(72vw, 350px);
+    filter: drop-shadow(0 18px 20px rgb(105 38 55 / 22%));
+    animation: bow-arrive .9s ease-out both;
+}
+
+.ribbon {
+    position: absolute;
+    top: 21%;
+    width: 44%;
+    height: 38%;
+    overflow: hidden;
+    border: 1px solid rgb(255 248 241 / 75%);
+
+    background: linear-gradient(
+        145deg,
+        #FFF6F1 0%,
+        #F4C5CB 17%,
+        #D87989 37%,
+        #B64F64 57%,
+        #D98896 75%,
+        #FCE8E5 92%,
+        #D98996 100%
+    );
+
+    box-shadow:
+        inset 0 4px 7px rgb(255 255 255 / 72%),
+        inset 0 -9px 14px rgb(105 38 55 / 28%),
+        0 7px 13px rgb(105 38 55 / 15%);
+}
+
+.ribbon::before {
+    content: "";
+    position: absolute;
+    inset: 5% 12%;
+    background: linear-gradient(
+        135deg,
+        rgb(255 255 255 / 55%),
+        transparent 35%,
+        rgb(105 38 55 / 18%) 70%,
+        rgb(255 255 255 / 30%)
+    );
+}
+
+.ribbon-left {
+    left: 7%;
+    border-radius: 75% 18% 70% 24%;
+    transform: rotate(13deg);
+    transform-origin: right center;
+}
+
+.ribbon-right {
+    right: 7%;
+    border-radius: 18% 75% 24% 70%;
+    transform: rotate(-13deg);
+    transform-origin: left center;
+}
+
+.ribbon-tail {
+    position: absolute;
+    top: 48%;
+    width: 25%;
+    height: 43%;
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 60%);
+
+    background: linear-gradient(
+        100deg,
+        #FCE8E5,
+        #D98996 22%,
+        #B64F64 48%,
+        #9B3D52 65%,
+        #E9AFB9 85%,
+        #FFF4EE
+    );
+
+    box-shadow:
+        inset 0 3px 7px rgb(255 255 255 / 55%),
+        inset 0 -8px 12px rgb(105 38 55 / 24%);
+}
+
+.ribbon-tail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgb(255 255 255 / 35%),
+        transparent 28%,
+        rgb(105 38 55 / 20%) 70%,
+        rgb(255 255 255 / 25%)
+    );
+}
+
+.tail-left {
+    left: 28%;
+    transform: rotate(8deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.tail-right {
+    right: 28%;
+    transform: rotate(-8deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.knot {
+    position: absolute;
+    z-index: 3;
+    top: 32%;
+    left: 50%;
+    width: 19%;
+    height: 25%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 42%;
+
+    background: linear-gradient(
+        125deg,
+        #FFF5F0,
+        #E9AFB9 25%,
+        #C45F73 52%,
+        #9E3D53 70%,
+        #F4CFD2 92%
+    );
+
+    box-shadow:
+        inset 2px 2px 5px rgb(255 255 255 / 72%),
+        inset -3px -5px 8px rgb(105 38 55 / 28%),
+        0 5px 10px rgb(105 38 55 / 22%);
+}
+
+.knot::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: 24%;
+    width: 22%;
+    height: 75%;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 40%);
+    filter: blur(2px);
+}
+
+.bow-screen.untying .ribbon-left {
+    animation: untie-left 1.25s cubic-bezier(.25, .8, .25, 1) forwards;
+}
+
+.bow-screen.untying .ribbon-right {
+    animation: untie-right 1.25s cubic-bezier(.25, .8, .25, 1) forwards;
+}
+
+.bow-screen.untying .tail-left {
+    animation: tail-left-away 1.1s ease-in-out forwards;
+}
+
+.bow-screen.untying .tail-right {
+    animation: tail-right-away 1.1s ease-in-out forwards;
+}
+
+.bow-screen.untying .knot {
+    animation: knot-away .8s ease-in forwards;
+}
+
+.bow-screen.untying .bow-stage {
+    animation: bow-fade .7s ease .4s forwards;
+}
+
+.bow-screen.screen-closing {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* =========================================
+   MAIN INVITATION BACKGROUND
+========================================= */
+
+.invitation-site {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: clip;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 10%,
+            rgb(255 255 255 / 48%),
+            transparent 40%
+        ),
+        linear-gradient(
+            160deg,
+            #F9E4E3 0%,
+            #F2CED1 38%,
+            #F7DCDD 72%,
+            #EABCC3 100%
+        );
+}
+
+.invitation-site.site-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    animation: site-appear .7s ease both;
+}
+
+/* =========================================
+   SIDE CURTAINS — GREETING SCREEN
+========================================= */
+
+.invitation-site::before,
+.invitation-site::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    width: clamp(24px, 7vw, 76px);
+    pointer-events: none;
+    opacity: .82;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgb(105 38 55 / 23%) 0,
+            rgb(105 38 55 / 23%) 3px,
+            transparent 8px,
+            rgb(255 245 239 / 35%) 13px,
+            transparent 19px
+        ),
+        linear-gradient(
+            90deg,
+            #963A50 0%,
+            #D47D8C 18%,
+            #F1C5C9 38%,
+            #C65F74 61%,
+            #A43E55 82%,
+            #E8A8B2 100%
+        );
+
+    box-shadow:
+        inset -4px 0 8px rgb(105 38 55 / 18%),
+        2px 0 9px rgb(105 38 55 / 12%);
+}
+
+.invitation-site::before {
+    left: 0;
+    border-right: 2px solid var(--gold);
+    
+}
+
+.invitation-site::after {
+    right: 0;
+    border-left: 2px solid var(--gold);
+    
+}
+
+/* Keep all invitation content above the background decoration */
+
+.invitation-reveal,
+.wedding-section,
+.closing-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   GREETING / NAMES
+========================================= */
+
+.invitation-reveal {
+    min-height: auto;
+    padding: 72px 36px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+}
+
+.invitation-reveal.revealed {
+    animation: reveal-greeting .9s ease both;
+}
+
+.reveal-decoration {
+    margin-bottom: 16px;
+    color: var(--gold);
+    font-size: 42px;
+}
+
+.eyebrow {
+    color: var(--red-dark);
+    font-size: 13px;
+    font-weight: 750;
+    line-height: 1.9;
+    letter-spacing: 2.5px;
+}
+
+.intro-script {
+    margin-top: 20px;
+    color: var(--red-dark);
+    font-family: var(--serif);
+    font-size: 21px;
+    font-style: italic;
+}
+
+.invitation-reveal h1 {
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--wine);
+    font-family: var(--script);
+    font-size: clamp(62px, 14vw, 104px);
+    font-weight: 400;
+    line-height: .95;
+    text-shadow: 0 4px 15px rgb(255 255 255 / 40%);
+}
+
+.invitation-reveal h1 i {
+    margin: 9px 0;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0 20px;
+    color: var(--gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: "";
+    width: 45px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.gold-divider::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.gold-divider span {
+    font-size: 18px;
+}
+
+.invitation-copy {
+    max-width: 340px;
+    color: #743B4A;
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.greeting-details {
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--red-dark);
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.greeting-dot {
+    color: var(--gold);
+}
+
+.scroll-prompt {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    color: var(--red-dark);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+.scroll-arrow {
+    color: var(--red-dark);
+    font-size: 32px;
+    animation: arrow-down 1.5s ease-in-out infinite;
+}
+
+/* =========================================
+   SHARED SECTION STYLING
+========================================= */
+
+.wedding-section {
+    min-height: auto;
+    padding: 52px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    scroll-margin-top: 15px;
+    background: transparent;
+    border: none;
+}
+
+.section-ornament {
+    margin-bottom: 13px;
+    color: var(--gold);
+    font-size: 29px;
+}
+
+.wedding-section h2,
+.closing-section h2 {
+    margin-top: 15px;
+    color: var(--wine);
+    font-family: var(--script);
+    font-size: clamp(47px, 11vw, 72px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.section-description {
+    width: 100%;
+    max-width: 330px;
+    margin: 17px auto 24px;
+    color: #743B4A;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+}
+
+/* =========================================
+   SAVE THE DATE
+========================================= */
+
+.scratch-section {
+    background: transparent;
+}
+
+.scratch-card {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 350px);
+    height: 190px;
+    margin-top: 8px;
+    overflow: hidden;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    background: var(--cream);
+
+    box-shadow:
+        0 10px 25px rgb(105 38 55 / 12%),
+        inset 0 0 0 5px rgb(177 138 80 / 10%);
+}
+
+.date-underlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 15px;
+
+    background: radial-gradient(
+        circle at top,
+        #FFFBF5,
+        #F4DDE0
+    );
+}
+
+.date-label {
+    color: var(--red-dark);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.date-underlay strong {
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: clamp(29px, 7vw, 40px);
+    font-weight: 600;
+}
+
+.date-underlay span:last-child {
+    color: var(--red-dark);
+    font-family: var(--serif);
+    font-size: 15px;
+}
+
+#scratchCanvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+#scratchCanvas.scratch-complete {
+    opacity: 0;
+    transition: opacity .45s ease;
+    pointer-events: none;
+}
+
+.scratch-hint {
+    min-height: 24px;
+    margin-top: 16px;
+    color: var(--red-dark);
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-section {
+    background: transparent;
+}
+
+.countdown {
+    width: 100%;
+    max-width: 430px;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.count-box {
+    min-width: 0;
+    padding: 18px 3px 16px;
+    border: 1px solid rgb(177 138 80 / 72%);
+    border-radius: 9px;
+
+    background: linear-gradient(
+        145deg,
+        #FFFAF5,
+        #F3DDE0
+    );
+
+    box-shadow: 0 7px 18px rgb(105 38 55 / 9%);
+}
+
+.count-box strong {
+    display: block;
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: clamp(22px, 6vw, 36px);
+    font-variant-numeric: tabular-nums;
+}
+
+.count-box span {
+    display: block;
+    margin-top: 7px;
+    color: var(--red-dark);
+    font-size: 8px;
+    letter-spacing: .5px;
+}
+
+.countdown-date {
+    margin-top: 22px;
+    color: var(--red-dark);
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+}
+
+.countdown-finished {
+    grid-column: 1 / -1;
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   WEDDING DETAILS
+========================================= */
+
+.details-section {
+    background: transparent;
+}
+
+.detail-card {
+    position: relative;
+    width: min(100%, 350px);
+    margin-top: 20px;
+    padding: 31px 19px;
+
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    outline: 1px solid rgb(177 138 80 / 30%);
+    outline-offset: 4px;
+
+    background: linear-gradient(
+        145deg,
+        #FFFAF5,
+        #F4DDE0
+    );
+
+    box-shadow: 0 12px 28px rgb(105 38 55 / 10%);
+}
+
+.detail-icon {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 34px;
+}
+
+.detail-overline {
+    color: var(--red-dark);
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.detail-card h3 {
+    margin: 14px 0 10px;
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.detail-card p {
+    margin: 7px 0;
+    color: #743B4A;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.detail-divider {
+    width: 55px;
+    height: 1px;
+    margin: 20px auto;
+    background: var(--gold);
+}
+
+.detail-card .detail-note {
+    margin-top: 20px;
+    color: #895B65;
+    font-family: var(--sans);
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   RSVP
+========================================= */
+
+.rsvp-section {
+    background: transparent;
+}
+
+.rsvp-choices {
+    width: min(100%, 350px);
+    margin: 22px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.rsvp-choice {
+    min-width: 0;
+    min-height: 135px;
+    padding: 15px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid var(--gold);
+    border-radius: 9px;
+
+    background: linear-gradient(
+        145deg,
+        #A9485C,
+        #792C40
+    );
+
+    color: white;
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgb(105 38 55 / 15%);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.rsvp-choice:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        145deg,
+        #BE6071,
+        #8F3548
+    );
+}
+
+.rsvp-choice.selected {
+    background: linear-gradient(
+        145deg,
+        #CF7886,
+        #9B4055
+    );
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.choice-heart {
+    color: var(--gold-light);
+    font-size: 28px;
+    line-height: 1;
+}
+
+.rsvp-choice.selected .choice-heart {
+    color: white;
+}
+
+.rsvp-choice > span:nth-child(2) {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.rsvp-choice small {
+    color: #FCE7E9;
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.rsvp-message {
+    max-width: 330px;
+    min-height: 28px;
+    margin: 18px auto 0;
+    color: var(--wine);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.rsvp-note {
+    max-width: 290px;
+    margin-top: 14px;
+    color: #895B65;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   CLOSING SECTION
+========================================= */
+
+.closing-section {
+    position: relative;
+    z-index: 1;
+    min-height: auto;
+    padding: 50px 32px 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid rgb(177 138 80 / 30%);
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgb(255 248 241 / 35%)
+    );
+}
+
+.closing-ornament {
+    margin-bottom: 15px;
+    color: var(--gold);
+    font-size: 42px;
+}
+
+.closing-section h2 {
+    max-width: 350px;
+    margin-top: 18px;
+    font-size: clamp(43px, 10vw, 65px);
+}
+
+.closing-names {
+    margin-top: 20px;
+    color: var(--red-dark);
+    font-family: var(--serif);
+    font-size: 18px;
+}
+
+.closing-date {
+    margin-top: 14px;
+    color: var(--wine);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.closing-heart {
+    margin-top: 22px;
+    color: var(--red);
+    font-size: 22px;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes bow-arrive {
+    from {
+        opacity: 0;
+        transform: scale(.88);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes untie-left {
+    to {
+        transform: translate(-110px, -70px) rotate(-75deg);
+        opacity: 0;
+    }
+}
+
+@keyframes untie-right {
+    to {
+        transform: translate(110px, -70px) rotate(75deg);
+        opacity: 0;
+    }
+}
+
+@keyframes tail-left-away {
+    to {
+        transform: translate(-45px, 110px) rotate(-30deg);
+        opacity: 0;
+    }
+}
+
+@keyframes tail-right-away {
+    to {
+        transform: translate(45px, 110px) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+@keyframes knot-away {
+    to {
+        transform: translate(-50%, -35px) scale(.35);
+        opacity: 0;
+    }
+}
+
+@keyframes bow-fade {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes site-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal-greeting {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes opening-text-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flower-drift {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -6px;
+    }
+}
+
+@keyframes arrow-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+/* =========================================
+   MOBILE LAYOUT
+========================================= */
+
+@media (max-width: 600px) {
+    .gold-frame {
+        inset: 10px;
+    }
+
+    .opening-text {
+        top: 15%;
+    }
+
+    .opening-text span {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .opening-hint {
+        bottom: 10%;
+        font-size: 15px;
+    }
+
+    .bow-stage {
+        width: min(94vw, 400px);
+        height: min(78vw, 320px);
+    }
+
+    .invitation-site::before,
+    .invitation-site::after {
+        width: 20px;
+        opacity: .65;
+    }
+
+    .invitation-reveal {
+        padding: 58px 28px 35px;
+    }
+
+    .invitation-reveal h1 {
+        font-size: clamp(58px, 15vw, 88px);
+    }
+
+    .intro-script {
+        font-size: 19px;
+    }
+
+    .invitation-copy {
+        max-width: 285px;
+        font-size: 15px;
+    }
+
+    .greeting-details {
+        gap: 8px;
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .wedding-section {
+        padding: 45px 27px;
+    }
+
+    .wedding-section h2 {
+        font-size: clamp(44px, 11vw, 64px);
+    }
+
+    .section-description {
+        font-size: 19px;
+    }
+
+    .scratch-card {
+        height: 175px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .count-box {
+        padding: 16px 2px;
+    }
+
+    .count-box strong {
+        font-size: clamp(20px, 5.8vw, 30px);
+    }
+
+    .count-box span {
+        font-size: 7px;
+        letter-spacing: 0;
+    }
+
+    .detail-card {
+        padding: 27px 15px;
+    }
+
+    .detail-card h3 {
+        font-size: 25px;
+    }
+
+    .detail-card p {
+        font-size: 17px;
+    }
+
+    .rsvp-choices {
+        gap: 7px;
+    }
+
+    .rsvp-choice {
+        min-height: 125px;
+        padding: 12px 5px;
+    }
+
+    .rsvp-choice > span:nth-child(2) {
+        font-size: 11px;
+    }
+
+    .rsvp-choice small {
+        font-size: 13px;
+    }
+
+    .closing-section {
+        padding: 45px 28px 55px;
+    }
+}
+
+@media (max-width: 360px) {
+    .invitation-reveal h1 {
+        font-size: 56px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .invitation-copy {
+        font-size: 15px;
+    }
+
+    .invitation-site::before,
+    .invitation-site::after {
+        width: 15px;
+    }
+
+    .countdown {
+        gap: 3px;
+    }
+
+    .count-box span {
+        font-size: 6px;
+    }
+
+    .rsvp-choice > span:nth-child(2) {
+        font-size: 10px;
+    }
+
+    .rsvp-choice small {
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* ===== GRAND WEDDING CURTAIN DECORATION ===== */
+
+.invitation-site {
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+/* Keep invitation content above the decoration */
+.invitation-site > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Elegant left and right curtain panels */
+.invitation-site::before,
+.invitation-site::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(24px, 5vw, 72px);
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8f3548 0%,
+            #d98996 12%,
+            #f8dfe2 27%,
+            #c66c7d 43%,
+            #f5cbd1 58%,
+            #a9455a 76%,
+            #f1c2ca 90%,
+            #8f3548 100%
+        );
+
+    box-shadow:
+        inset 3px 0 5px rgba(255, 248, 241, 0.45),
+        inset -3px 0 6px rgba(105, 38, 55, 0.25);
+}
+
+.invitation-site::before {
+    left: 0;
+    border-right: 2px solid #b18a50;
+}
+
+.invitation-site::after {
+    right: 0;
+    border-left: 2px solid #b18a50;
+}
+
+/* Delicate gold trim */
+.invitation-site {
+    background-clip: padding-box;
+}
+
+/* Mobile-friendly curtain width */
+@media (max-width: 600px) {
+    .invitation-site::before,
+    .invitation-site::after {
+        width: 18px;
+    }
+
+    .invitation-site::before {
+        border-right-width: 1px;
+    }
+
+    .invitation-site::after {
+        border-left-width: 1px;
+    }
+}
+
+/* Remove unwanted divider lines between invitation sections */
+.invitation-reveal,
+.wedding-section {
+    border-bottom: none;
+}
+
+/* Add a subtle, elegant gold frame around the greeting */
+.invitation-reveal {
+    outline: none;
+}
+
+/* ===== FIX POINTED CURTAINS AND HORIZONTAL LINES ===== */
+
+.invitation-site::before,
+.invitation-site::after {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+}
+
+/* Remove borders that may create horizontal lines */
+.invitation-site,
+.invitation-reveal,
+.wedding-section {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* Keep curtain decoration behind the invitation content */
+.invitation-site {
+    isolation: isolate;
+}
+
+.invitation-site::before,
+.invitation-site::after {
+    z-index: 0 !important;
+    pointer-events: none;
+}
+
+.invitation-site > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+/* Elegant intertwined wedding monogram */
+.couple-monogram {
+    width: 190px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.couple-monogram .monogram-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+
+@media (max-width: 600px) {
+    .couple-monogram {
+        width: 115px;
+        max-width: 100%;
+        margin: 0 auto 8px;
+    }
+}
+
+
+/* Reduce empty space on the first screen on mobile */
+@media (max-width: 600px) {
+    section:has(.couple-monogram) {
+        padding-top: 8px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .couple-monogram {
+        margin-top: 0 !important;
+        margin-bottom: 6px !important;
+        width: 105px;
+    }
+}
+
